@@ -1,0 +1,81 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: black;
+  height: 100%;
+}
+
+.sky {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  cursor: crosshair;
+  overflow: hidden;
+}
+
+.rocket {
+  position: absolute;
+  bottom: 0;
+  animation: launch 1.2s ease-out forwards;
+}
+
+.rocket-body {
+  width: 6px;
+  height: 30px;
+  background: white;
+  margin: 0 auto;
+  box-shadow: 0 0 10px white;
+  border-radius: 2px;
+}
+
+@keyframes launch {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-70vh); }
+}
+
+.explode {
+  animation: none;
+}
+
+.explosion {
+  position: absolute;
+  top: -70vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: var(--color);
+  border-radius: 50%;
+  animation: burst 1.2s ease-out forwards;
+  transform: rotate(var(--angle)) translate(0, 0);
+}
+
+@keyframes burst {
+  0% {
+    transform: rotate(var(--angle)) translate(0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(var(--angle)) translate(80px, 0);
+    opacity: 0;
+  }
+}
+
+.tip {
+  color: white;
+  font-family: monospace;
+  text-align: center;
+  font-size: 1.2rem;
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  pointer-events: none;
+}
